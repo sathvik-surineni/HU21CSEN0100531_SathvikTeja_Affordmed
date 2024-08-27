@@ -20,10 +20,9 @@ const getProducts = async (req, res) => {
   }
 
   try {
-    // Authenticate if the token is not present or expired
+    
     await authenticate();
 
-    // Fetch products
     const products = await fetchProducts(company, category, minPrice, maxPrice, topN);
     res.status(200).json({ products });
   } catch (error) {
